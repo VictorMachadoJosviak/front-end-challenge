@@ -1,3 +1,4 @@
 rodar os seguintes comandos: 
-` npm install -g json-server
-` json-server -p 8080 db.json
+` npm install -g json-server`
+<br>
+` json-server -p 8080 db.json`
