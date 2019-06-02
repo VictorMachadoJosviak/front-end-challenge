@@ -1,0 +1,68 @@
+<div class="container">
+  <div class="row">
+    <div class="col-lg-4"></div>
+    <div class="col-lg-4">
+      <h2>Salvar Tarefa</h2>
+      <hr>
+    </div>
+  </div>
+  <form [formGroup]="saveForm" (ngSubmit)="save()">
+    <div class="row">
+      <div class="col-lg-4"></div>
+      <div class="col-lg-4">
+        <input type="hidden" formControlName="id">
+        <div class="input-group mb-3">
+          <div class="input-group-prepend">
+            <span class="input-group-text" id="basic-addon1">
+              <fa name="tasks"></fa>
+            </span>
+          </div>
+          <input type="text" required formControlName="nome" class="form-control" placeholder="Nome da Tarefa">
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-4"></div>
+      <div class="col-lg-4">
+        <div class="input-group">
+          <div class="input-group-prepend">
+            <span class="input-group-text">
+              <fa name="comments"></fa>
+            </span>
+          </div>
+          <textarea class="form-control" formControlName="descricao" placeholder="Descrição"></textarea>
+        </div>
+      </div>
+    </div>
+    <div class="row mt-3">
+      <div class="col-lg-4"></div>
+      <div class="col-lg-4">
+        <div class="input-group">
+          <div class="input-group-prepend">
+            <span class="input-group-text">
+              <fa name="check"></fa>
+            </span>
+          </div>
+          <select class="form-control" formControlName="status" title="Status">
+            <option value="" disabled selected>Status</option>
+            <option *ngFor="let item of statusTarefa" [value]="item.value">{{item.label}}</option>
+          </select>
+        </div>
+      </div>
+    </div>
+  </form>
+  <div class="row mt-3">
+    <div class="col-lg-4"></div>
+    <div class="col-lg-2">
+      <button type="button" routerLink="/home" class="btn btn-block btn-secondary">
+        <fa class="mr-3" name="arrow-left"></fa>Voltar
+      </button>
+    </div>
+    <div class="col-lg-2">
+      <button type="submit" class="btn btn-block btn-primary" (click)="save()"> Salvar <fa class="ml-3" name="save">
+        </fa></button>
+    </div>
+  </div>
+</div>
+<swal #successSwal title="Sucesso" text="salvo com sucesso" type="success" (confirm)="toHome()">
+</swal>
